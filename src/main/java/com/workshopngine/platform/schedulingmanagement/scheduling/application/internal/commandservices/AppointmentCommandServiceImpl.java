@@ -19,6 +19,8 @@ public class AppointmentCommandServiceImpl implements AppointmentCommandService 
         var newAppointment = new Appointment(command);
         try {
             this.appointmentRepository.save(newAppointment);
+            newAppointment.sendAppointmentCreatedEvent();
+            this.appointmentRepository.save(newAppointment);
         } catch (Exception e) {
             throw new RuntimeException("Error saving appointment", e);
         }

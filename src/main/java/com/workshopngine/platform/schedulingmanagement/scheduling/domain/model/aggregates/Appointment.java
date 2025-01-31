@@ -1,6 +1,7 @@
 package com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.aggregates;
 
 import com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.commands.CreateAppointmentCommand;
+import com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.events.AppointmentCreatedEvent;
 import com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.valueobjects.DateTimeRange;
 import com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.valueobjects.*;
 import com.workshopngine.platform.schedulingmanagement.shared.domain.model.aggregates.AuditableAbstractAggregateRoot;
@@ -65,5 +66,16 @@ public class Appointment extends AuditableAbstractAggregateRoot<Appointment> {
         if (this.serviceType.equals(EServiceType.REPAIR)){
             this.duration.setEstimatedDuration(Duration.ofHours(2));
         }
+    }
+
+    public void sendAppointmentCreatedEvent(){
+        registerEvent(AppointmentCreatedEvent
+                .builder()
+                .appointmentId(this.getId())
+                .clientId(this.getClientId().clientId())
+                .vehicleId(this.getVehicleId().vehicleId())
+                .mechanicId(this.getMechanicId().mechanicId())
+                .workshopId(this.getWorkshopId().workshopId())
+                .build());
     }
 }
