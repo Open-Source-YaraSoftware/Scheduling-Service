@@ -3,5 +3,5 @@ package com.workshopngine.platform.schedulingmanagement.scheduling.domain.servic
 import com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.commands.CreateAppointmentCommand;
 
 public interface AppointmentCommandService {
-    Long handle(CreateAppointmentCommand command);
+    String handle(CreateAppointmentCommand command);
 }

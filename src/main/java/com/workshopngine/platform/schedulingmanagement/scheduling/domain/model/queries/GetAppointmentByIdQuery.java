@@ -1,9 +1,9 @@
 package com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.queries;
 
-public record GetAppointmentByIdQuery(Long appointmentId) {
+public record GetAppointmentByIdQuery(String appointmentId) {
     public GetAppointmentByIdQuery {
-        if (appointmentId == null || appointmentId <= 0) {
-            throw new IllegalArgumentException("Appointment ID must be a positive integer");
+        if (appointmentId == null || appointmentId.isBlank()) {
+            throw new IllegalArgumentException("appointmentId cannot be null or empty");
         }
     }
 }

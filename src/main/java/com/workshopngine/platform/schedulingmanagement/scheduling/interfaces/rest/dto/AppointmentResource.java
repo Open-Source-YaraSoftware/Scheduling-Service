@@ -4,11 +4,11 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public record AppointmentResource(
-        Long id,
-        Long clientId,
-        Long vehicleId,
-        Long mechanicId,
-        Long workshopId,
+        String id,
+        String clientId,
+        String vehicleId,
+        String mechanicId,
+        String workshopId,
         String serviceType,
         LocalDateTime startedAt,
         LocalDateTime endedAt,

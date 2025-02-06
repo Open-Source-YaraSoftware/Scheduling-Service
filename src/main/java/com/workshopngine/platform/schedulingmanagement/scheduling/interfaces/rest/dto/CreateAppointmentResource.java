@@ -3,10 +3,10 @@ package com.workshopngine.platform.schedulingmanagement.scheduling.interfaces.re
 import java.time.LocalDateTime;
 
 public record CreateAppointmentResource(
-        Long clientId,
-        Long vehicleId,
-        Long mechanicId,
-        Long workshopId,
+        String clientId,
+        String vehicleId,
+        String mechanicId,
+        String workshopId,
         String serviceType,
         LocalDateTime startedAt
 ) {

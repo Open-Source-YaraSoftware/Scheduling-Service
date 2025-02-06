@@ -39,7 +39,7 @@ public class AppointmentController {
             @ApiResponse(responseCode = "200", description = "Appointment found"),
             @ApiResponse(responseCode = "404", description = "Appointment not found")
     })
-    public ResponseEntity<AppointmentResource> getAppointmentById(@PathVariable Long appointmentId) {
+    public ResponseEntity<AppointmentResource> getAppointmentById(@PathVariable String appointmentId) {
         var query = new GetAppointmentByIdQuery(appointmentId);
         var appointment = appointmentQueryService.handle(query);
         if (appointment.isEmpty()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -54,7 +54,7 @@ public class AppointmentController {
             @ApiResponse(responseCode = "400", description = "Invalid request")
     })
     public ResponseEntity<Collection<AppointmentResource>> getAllAppointmentsByWorkshopIdOrClientId
-            (@RequestParam(required = false) Long workshopId, @RequestParam(required = false) Long clientId) {
+            (@RequestParam(required = false) String workshopId, @RequestParam(required = false) String clientId) {
         if (workshopId == null && clientId == null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (workshopId != null && clientId != null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         var appointments = (workshopId != null)

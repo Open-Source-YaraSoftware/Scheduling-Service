@@ -4,10 +4,10 @@ import lombok.Builder;
 
 @Builder
 public record AppointmentCreatedEvent(
-        Long appointmentId,
-        Long clientId,
-        Long vehicleId,
-        Long mechanicId,
-        Long workshopId
+        String appointmentId,
+        String clientId,
+        String vehicleId,
+        String mechanicId,
+        String workshopId
 ) implements AppointmentEvent {
 }

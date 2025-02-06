@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 
 @Repository
-public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
+public interface AppointmentRepository extends JpaRepository<Appointment, String> {
     Collection<Appointment> findAllByWorkshopId(WorkshopId workshopId);
     Collection<Appointment> findAllByClientId(ClientId clientId);
 }

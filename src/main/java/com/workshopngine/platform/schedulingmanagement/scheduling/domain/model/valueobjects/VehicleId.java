@@ -3,10 +3,10 @@ package com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public record VehicleId(Long vehicleId) {
+public record VehicleId(String vehicleId) {
     public VehicleId {
-        if (vehicleId == null || vehicleId < 0) {
-            throw new IllegalArgumentException("VehicleId must be a positive number");
+        if (vehicleId == null || vehicleId.isBlank()) {
+            throw new IllegalArgumentException("vehicleId cannot be null or empty");
         }
     }
 }
