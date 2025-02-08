@@ -66,6 +66,7 @@ public class Appointment extends AuditableAbstractAggregateRoot<Appointment> {
         if (this.serviceType.equals(EServiceType.REPAIR)){
             this.duration.setEstimatedDuration(Duration.ofHours(2));
         }
+            this.timeRange.setEndedAt(this.timeRange.getStartedAt().plus(this.duration.getEstimatedDuration()));
     }
 
     public void sendAppointmentCreatedEvent(){
