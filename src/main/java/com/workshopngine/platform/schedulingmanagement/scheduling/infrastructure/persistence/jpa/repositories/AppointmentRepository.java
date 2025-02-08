@@ -6,10 +6,12 @@ import com.workshopngine.platform.schedulingmanagement.scheduling.domain.model.v
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, String> {
     Collection<Appointment> findAllByWorkshopId(WorkshopId workshopId);
     Collection<Appointment> findAllByClientId(ClientId clientId);
+    Boolean existsByTimeRange_StartedAtLessThanEqualAndTimeRange_EndedAtGreaterThanEqual(LocalDateTime requestedTimeStart, LocalDateTime requestedTimeEnd);
 }
