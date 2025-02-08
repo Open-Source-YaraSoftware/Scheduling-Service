@@ -14,10 +14,7 @@ public class ServiceDuration {
     @NotNull
     private Duration estimatedDuration;
 
-    private Duration actualDuration;
-
     public ServiceDuration() {
         this.estimatedDuration = Duration.ZERO;
-        this.actualDuration = Duration.ZERO;
     }
 }

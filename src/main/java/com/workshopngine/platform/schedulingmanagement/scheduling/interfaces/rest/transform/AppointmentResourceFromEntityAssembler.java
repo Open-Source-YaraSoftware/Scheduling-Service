@@ -15,8 +15,7 @@ public class AppointmentResourceFromEntityAssembler {
             entity.getTimeRange().getStartedAt(),
             entity.getTimeRange().getEndedAt(),
             entity.getStatus().toString(),
-            entity.getDuration().getEstimatedDuration(),
-            entity.getDuration().getActualDuration()
+            entity.getDuration().getEstimatedDuration()
         );
     }
 }

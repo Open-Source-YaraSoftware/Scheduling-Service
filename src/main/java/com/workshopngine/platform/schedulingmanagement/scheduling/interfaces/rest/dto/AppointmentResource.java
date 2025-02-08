@@ -13,7 +13,6 @@ public record AppointmentResource(
         LocalDateTime startedAt,
         LocalDateTime endedAt,
         String status,
-        Duration estimatedDuration,
-        Duration actualDuration
+        Duration estimatedDuration
 ) {
 }
